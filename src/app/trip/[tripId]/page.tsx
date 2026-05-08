@@ -7,6 +7,7 @@ import { ItineraryGrid } from "@/components/trip/ItineraryGrid";
 import { BudgetCard, buildBudgetFromActivities } from "@/components/trip/BudgetCard";
 import { WeatherCard } from "@/components/trip/WeatherCard";
 import { TravelTipsCard } from "@/components/trip/TravelTipsCard";
+import { MapCard } from "@/components/trip/MapCard";
 import { EmptyState } from "@/components/shared/EmptyState";
 import { useWeather } from "@/hooks/useWeather";
 import { motion } from "framer-motion";
@@ -169,6 +170,7 @@ export default function TripDetailPage({
 
                 {/* Sidebar */}
                 <div className="space-y-5">
+                  <MapCard destination={mockTrip.destination} />
                   <WeatherCard
                     weather={weather}
                     loading={weatherLoading}
