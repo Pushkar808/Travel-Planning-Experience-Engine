@@ -106,7 +106,7 @@ export function TripPlannerForm({ onSubmit }: TripPlannerFormProps) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       onSubmit={handleSubmit(handleFormSubmit)}
-      className="mx-auto w-full max-w-2xl space-y-6 rounded-3xl border border-white/10 bg-white/[0.04] p-6 shadow-2xl shadow-violet-500/5 backdrop-blur-2xl sm:p-8 md:p-10"
+      className="mx-auto w-full max-w-2xl space-y-6 rounded-3xl border border-white/10 bg-white/[0.04] p-6 shadow-2xl shadow-blue-500/5 backdrop-blur-2xl sm:p-8 md:p-10"
     >
       {/* Header */}
       <div className="text-center">
@@ -120,14 +120,15 @@ export function TripPlannerForm({ onSubmit }: TripPlannerFormProps) {
 
       {/* Destination */}
       <fieldset className="space-y-2">
-        <label className="flex items-center gap-2 text-sm font-medium">
-          <MapPin className="h-4 w-4 text-violet-400" />
+        <label htmlFor="destination-input" className="flex items-center gap-2 text-sm font-medium">
+          <MapPin className="h-4 w-4 text-blue-400" aria-hidden="true" />
           Destination
         </label>
         <input
+          id="destination-input"
           {...register("destination")}
           placeholder="e.g. Tokyo, Japan"
-          className="w-full rounded-xl border border-white/10 bg-white/[0.06] px-4 py-3 text-sm outline-none ring-violet-500/40 transition-all placeholder:text-muted-foreground/50 focus:border-violet-500/50 focus:bg-white/[0.08] focus:ring-2"
+          className="w-full rounded-xl border border-white/10 bg-white/[0.06] px-4 py-3 text-sm outline-none ring-blue-500/40 transition-all placeholder:text-muted-foreground/50 focus:border-blue-500/50 focus:bg-white/[0.08] focus:ring-2"
         />
         {errors.destination && (
           <p className="text-xs text-red-400">{errors.destination.message}</p>
@@ -137,14 +138,15 @@ export function TripPlannerForm({ onSubmit }: TripPlannerFormProps) {
       {/* Dates */}
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <fieldset className="space-y-2">
-          <label className="flex items-center gap-2 text-sm font-medium">
-            <Calendar className="h-4 w-4 text-cyan-400" />
+          <label htmlFor="start-date-input" className="flex items-center gap-2 text-sm font-medium">
+            <Calendar className="h-4 w-4 text-blue-300" aria-hidden="true" />
             Start Date
           </label>
           <input
+            id="start-date-input"
             type="date"
             {...register("startDate")}
-            className="w-full rounded-xl border border-white/10 bg-white/[0.06] px-4 py-3 text-sm outline-none ring-violet-500/40 transition-all focus:border-violet-500/50 focus:bg-white/[0.08] focus:ring-2"
+            className="w-full rounded-xl border border-white/10 bg-white/[0.06] px-4 py-3 text-sm outline-none ring-blue-500/40 transition-all focus:border-blue-500/50 focus:bg-white/[0.08] focus:ring-2"
           />
           {errors.startDate && (
             <p className="text-xs text-red-400">{errors.startDate.message}</p>
@@ -152,14 +154,15 @@ export function TripPlannerForm({ onSubmit }: TripPlannerFormProps) {
         </fieldset>
 
         <fieldset className="space-y-2">
-          <label className="flex items-center gap-2 text-sm font-medium">
-            <Calendar className="h-4 w-4 text-cyan-400" />
+          <label htmlFor="end-date-input" className="flex items-center gap-2 text-sm font-medium">
+            <Calendar className="h-4 w-4 text-blue-300" aria-hidden="true" />
             End Date
           </label>
           <input
+            id="end-date-input"
             type="date"
             {...register("endDate")}
-            className="w-full rounded-xl border border-white/10 bg-white/[0.06] px-4 py-3 text-sm outline-none ring-violet-500/40 transition-all focus:border-violet-500/50 focus:bg-white/[0.08] focus:ring-2"
+            className="w-full rounded-xl border border-white/10 bg-white/[0.06] px-4 py-3 text-sm outline-none ring-blue-500/40 transition-all focus:border-blue-500/50 focus:bg-white/[0.08] focus:ring-2"
           />
           {errors.endDate && (
             <p className="text-xs text-red-400">{errors.endDate.message}</p>
@@ -178,10 +181,11 @@ export function TripPlannerForm({ onSubmit }: TripPlannerFormProps) {
             <button
               key={opt.value}
               type="button"
+              aria-pressed={selectedBudget === opt.value}
               onClick={() => setValue("budget", opt.value, { shouldValidate: true })}
-              className={`group flex flex-col items-center gap-1 rounded-xl border px-3 py-4 text-sm transition-all ${
+              className={`group flex flex-col items-center gap-1 rounded-xl border px-3 py-4 text-sm transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 ${
                 selectedBudget === opt.value
-                  ? "border-violet-500/50 bg-violet-500/10 text-violet-300 shadow-lg shadow-violet-500/10"
+                  ? "border-blue-500/50 bg-blue-500/10 text-blue-300 shadow-lg shadow-blue-500/10"
                   : "border-white/10 bg-white/[0.03] hover:border-white/20 hover:bg-white/[0.06]"
               }`}
             >
@@ -208,10 +212,11 @@ export function TripPlannerForm({ onSubmit }: TripPlannerFormProps) {
             <button
               key={opt.value}
               type="button"
+              aria-pressed={selectedStyles?.includes(opt.value)}
               onClick={() => toggleStyle(opt.value)}
-              className={`flex items-center gap-1.5 rounded-full border px-4 py-2 text-sm transition-all ${
+              className={`flex items-center gap-1.5 rounded-full border px-4 py-2 text-sm transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 ${
                 selectedStyles?.includes(opt.value)
-                  ? "border-violet-500/50 bg-violet-500/15 text-violet-300"
+                  ? "border-blue-500/50 bg-blue-500/15 text-blue-300"
                   : "border-white/10 bg-white/[0.03] hover:border-white/20 hover:bg-white/[0.06]"
               }`}
             >
@@ -227,15 +232,16 @@ export function TripPlannerForm({ onSubmit }: TripPlannerFormProps) {
 
       {/* Interests */}
       <fieldset className="space-y-2">
-        <label className="flex items-center gap-2 text-sm font-medium">
-          <Heart className="h-4 w-4 text-rose-400" />
+        <label htmlFor="interests-input" className="flex items-center gap-2 text-sm font-medium">
+          <Heart className="h-4 w-4 text-rose-400" aria-hidden="true" />
           Interests & Preferences
         </label>
         <textarea
+          id="interests-input"
           {...register("interests")}
           rows={3}
           placeholder="e.g. Street food tours, hidden temples, sunset spots, local markets..."
-          className="w-full resize-none rounded-xl border border-white/10 bg-white/[0.06] px-4 py-3 text-sm outline-none ring-violet-500/40 transition-all placeholder:text-muted-foreground/50 focus:border-violet-500/50 focus:bg-white/[0.08] focus:ring-2"
+          className="w-full resize-none rounded-xl border border-white/10 bg-white/[0.06] px-4 py-3 text-sm outline-none ring-blue-500/40 transition-all placeholder:text-muted-foreground/50 focus:border-blue-500/50 focus:bg-white/[0.08] focus:ring-2"
         />
         {errors.interests && (
           <p className="text-xs text-red-400">{errors.interests.message}</p>
@@ -244,16 +250,17 @@ export function TripPlannerForm({ onSubmit }: TripPlannerFormProps) {
 
       {/* Group Size */}
       <fieldset className="space-y-2">
-        <label className="flex items-center gap-2 text-sm font-medium">
-          <Users className="h-4 w-4 text-amber-400" />
+        <label htmlFor="group-size-input" className="flex items-center gap-2 text-sm font-medium">
+          <Users className="h-4 w-4 text-amber-400" aria-hidden="true" />
           Group Size
         </label>
         <input
+          id="group-size-input"
           type="number"
           min={1}
           max={20}
           {...register("groupSize", { valueAsNumber: true })}
-          className="w-full max-w-[120px] rounded-xl border border-white/10 bg-white/[0.06] px-4 py-3 text-sm outline-none ring-violet-500/40 transition-all focus:border-violet-500/50 focus:bg-white/[0.08] focus:ring-2"
+          className="w-full max-w-[120px] rounded-xl border border-white/10 bg-white/[0.06] px-4 py-3 text-sm outline-none ring-blue-500/40 transition-all focus:border-blue-500/50 focus:bg-white/[0.08] focus:ring-2"
         />
         {errors.groupSize && (
           <p className="text-xs text-red-400">{errors.groupSize.message}</p>
@@ -264,7 +271,7 @@ export function TripPlannerForm({ onSubmit }: TripPlannerFormProps) {
       <Button
         type="submit"
         disabled={isSubmitting}
-        className="h-12 w-full bg-gradient-to-r from-violet-600 to-cyan-600 text-base font-semibold text-white shadow-xl shadow-violet-500/25 transition-all hover:from-violet-500 hover:to-cyan-500 hover:shadow-violet-500/40 disabled:opacity-50"
+        className="h-12 w-full bg-blue-600 text-base font-semibold text-white shadow-xl shadow-blue-500/25 transition-all hover:bg-blue-500 hover:shadow-blue-500/40 disabled:opacity-50"
       >
         {isSubmitting ? (
           <>

@@ -38,19 +38,25 @@ export function Hero() {
         <motion.div
           variants={floatingVariants}
           animate="animate"
-          className="absolute -top-32 left-1/4 h-96 w-96 rounded-full bg-violet-500/20 blur-[120px]"
+          className="absolute -top-32 left-1/4 h-96 w-96 rounded-full bg-blue-500/15 blur-[120px]"
         />
         <motion.div
           variants={floatingVariants}
           animate="animate"
-          transition={{ delay: 1.5 }}
-          className="absolute -bottom-32 right-1/4 h-96 w-96 rounded-full bg-cyan-500/20 blur-[120px]"
+          transition={{ delay: 1 }}
+          className="absolute -bottom-32 right-1/4 h-96 w-96 rounded-full bg-red-500/15 blur-[120px]"
+        />
+        <motion.div
+          variants={floatingVariants}
+          animate="animate"
+          transition={{ delay: 2 }}
+          className="absolute top-1/2 left-1/2 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-yellow-500/15 blur-[100px]"
         />
         <motion.div
           variants={floatingVariants}
           animate="animate"
           transition={{ delay: 3 }}
-          className="absolute top-1/2 left-1/2 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-pink-500/10 blur-[100px]"
+          className="absolute bottom-1/4 left-1/4 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-500/10 blur-[100px]"
         />
       </div>
 
@@ -65,92 +71,100 @@ export function Hero() {
       />
 
       {/* Content */}
-      <div className="relative z-10 mx-auto max-w-4xl text-center">
-        {/* Badge */}
+      <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 lg:grid-cols-2">
+        
+        {/* Left Column: Typography & CTAs */}
+        <div className="text-left">
+          {/* Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm text-foreground backdrop-blur-sm"
+          >
+            <Sparkles className="h-3.5 w-3.5" />
+            AI-Powered Travel Planning
+          </motion.div>
+
+          {/* Headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.15 }}
+            className="text-5xl font-extrabold tracking-tight sm:text-6xl lg:text-7xl"
+          >
+            <span className="block">Your Next Trip,</span>
+            <span className="mt-2 block bg-gradient-to-r from-blue-500 via-red-500 to-yellow-500 bg-clip-text text-transparent pb-2">
+              Planned by AI
+            </span>
+          </motion.h1>
+
+          {/* Subtitle */}
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="mt-6 max-w-xl text-lg text-muted-foreground sm:text-xl"
+          >
+            Tell us your destination, dates, and vibe — our AI crafts a
+            personalized day-by-day itinerary with real-time weather, local gems,
+            and smart budget planning.
+          </motion.p>
+
+          {/* CTAs */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.45 }}
+            className="mt-10 flex flex-col items-start gap-4 sm:flex-row"
+          >
+            <Link href="/trip/new">
+              <Button
+                size="lg"
+                className="h-12 min-w-[200px] bg-blue-600 text-base font-semibold text-white shadow-xl shadow-blue-500/25 transition-all hover:bg-blue-500 hover:shadow-blue-500/40 hover:scale-[1.03]"
+              >
+                Start Planning — Free
+              </Button>
+            </Link>
+            <Link href="/dashboard">
+              <Button
+                variant="outline"
+                size="lg"
+                className="h-12 min-w-[200px] border-white/15 bg-white/5 text-base backdrop-blur-sm transition-all hover:bg-white/10 hover:scale-[1.03]"
+              >
+                View My Trips
+              </Button>
+            </Link>
+          </motion.div>
+        </div>
+
+        {/* Right Column: Feature Cards Grid */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="mb-6 inline-flex items-center gap-2 rounded-full border border-violet-500/30 bg-violet-500/10 px-4 py-1.5 text-sm text-violet-300 backdrop-blur-sm"
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="relative flex flex-col gap-4 sm:ml-auto w-full max-w-md lg:max-w-none"
         >
-          <Sparkles className="h-3.5 w-3.5" />
-          AI-Powered Travel Planning
-        </motion.div>
-
-        {/* Headline */}
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.15 }}
-          className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
-        >
-          <span className="block">Your Next Trip,</span>
-          <span className="mt-1 block bg-gradient-to-r from-violet-400 via-cyan-400 to-pink-400 bg-clip-text text-transparent">
-            Planned by AI
-          </span>
-        </motion.h1>
-
-        {/* Subtitle */}
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.3 }}
-          className="mx-auto mt-6 max-w-2xl text-base text-muted-foreground sm:text-lg md:text-xl"
-        >
-          Tell us your destination, dates, and vibe — our AI crafts a
-          personalized day-by-day itinerary with real-time weather, local gems,
-          and smart budget planning.
-        </motion.p>
-
-        {/* CTAs */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.45 }}
-          className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
-        >
-          <Link href="/trip/new">
-            <Button
-              size="lg"
-              className="h-12 min-w-[200px] bg-gradient-to-r from-violet-600 to-cyan-600 text-base font-semibold text-white shadow-xl shadow-violet-500/25 transition-all hover:from-violet-500 hover:to-cyan-500 hover:shadow-violet-500/40 hover:scale-[1.03]"
+          {features.map((f, i) => (
+            <motion.div
+              key={f.title}
+              whileHover={{ x: -8, scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              className={`group flex items-start gap-4 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-lg transition-colors hover:border-white/20 hover:bg-white/[0.08] ${
+                i === 1 ? "lg:ml-12" : i === 2 ? "lg:ml-24" : ""
+              }`}
             >
-              Start Planning — Free
-            </Button>
-          </Link>
-          <Link href="/dashboard">
-            <Button
-              variant="outline"
-              size="lg"
-              className="h-12 min-w-[200px] border-white/15 bg-white/5 text-base backdrop-blur-sm transition-all hover:bg-white/10 hover:scale-[1.03]"
-            >
-              View My Trips
-            </Button>
-          </Link>
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/10 text-foreground transition-colors group-hover:bg-blue-500 group-hover:text-white">
+                <f.icon className="h-6 w-6" />
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold">{f.title}</h3>
+                <p className="mt-1 text-sm text-muted-foreground">{f.desc}</p>
+              </div>
+            </motion.div>
+          ))}
         </motion.div>
       </div>
-
-      {/* Feature Cards */}
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.7 }}
-        className="relative z-10 mx-auto mt-20 grid max-w-5xl grid-cols-1 gap-4 px-4 sm:grid-cols-3 md:gap-6"
-      >
-        {features.map((f, i) => (
-          <motion.div
-            key={f.title}
-            whileHover={{ y: -4, scale: 1.02 }}
-            transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            className="group rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-lg transition-colors hover:border-violet-500/30 hover:bg-white/[0.08]"
-          >
-            <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-violet-500/20 to-cyan-500/20 text-violet-400 transition-colors group-hover:from-violet-500/30 group-hover:to-cyan-500/30">
-              <f.icon className="h-5 w-5" />
-            </div>
-            <h3 className="text-sm font-semibold">{f.title}</h3>
-            <p className="mt-1 text-sm text-muted-foreground">{f.desc}</p>
-          </motion.div>
-        ))}
-      </motion.div>
 
       {/* Bottom Gradient Fade */}
       <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />

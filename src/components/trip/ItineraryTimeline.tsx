@@ -28,7 +28,7 @@ export function ItineraryTimeline({ days }: ItineraryTimelineProps) {
         >
           {/* Day Header */}
           <div className="mb-4 flex items-baseline gap-3">
-            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-violet-500/20 to-cyan-500/20 text-sm font-bold text-violet-400">
+            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500/20 to-blue-400/20 text-sm font-bold text-blue-400">
               {day.day}
             </span>
             <div>
@@ -45,10 +45,10 @@ export function ItineraryTimeline({ days }: ItineraryTimelineProps) {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: dayIndex * 0.15 + actIndex * 0.08 }}
-                className="group relative rounded-xl border border-white/10 bg-white/[0.03] p-4 backdrop-blur-sm transition-colors hover:border-violet-500/20 hover:bg-white/[0.06]"
+                className="group relative rounded-xl border border-white/10 bg-white/[0.03] p-4 backdrop-blur-sm transition-colors hover:border-blue-500/20 hover:bg-white/[0.06]"
               >
                 {/* Timeline Dot */}
-                <div className="absolute -left-[33px] top-4 h-3 w-3 rounded-full border-2 border-violet-500/50 bg-background" />
+                <div className="absolute -left-[33px] top-4 h-3 w-3 rounded-full border-2 border-blue-500/50 bg-background" />
 
                 <div className="flex flex-wrap items-start justify-between gap-2">
                   <div className="flex-1">

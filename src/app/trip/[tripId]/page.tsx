@@ -123,7 +123,7 @@ export default function TripDetailPage({
       <Navbar />
       <main className="flex-1 pt-24 pb-16">
         <div className="pointer-events-none fixed inset-0 overflow-hidden">
-          <div className="absolute top-20 right-1/3 h-72 w-72 rounded-full bg-violet-500/10 blur-[120px]" />
+          <div className="absolute top-20 right-1/3 h-72 w-72 rounded-full bg-blue-500/10 blur-[120px]" />
         </div>
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -148,11 +148,11 @@ export default function TripDetailPage({
               <h1 className="text-2xl font-bold">{mockTrip.title}</h1>
               <div className="mt-2 flex flex-wrap gap-4 text-sm text-muted-foreground">
                 <span className="flex items-center gap-1.5">
-                  <MapPin className="h-4 w-4 text-violet-400" />
+                  <MapPin className="h-4 w-4 text-blue-400" />
                   {mockTrip.destination}
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <Calendar className="h-4 w-4 text-cyan-400" />
+                  <Calendar className="h-4 w-4 text-blue-300" />
                   {mockTrip.startDate} → {mockTrip.endDate}
                 </span>
               </div>

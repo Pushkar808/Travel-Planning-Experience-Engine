@@ -63,7 +63,7 @@ export function ActivityCard({
       initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, delay: index * 0.06 }}
-      className="group relative flex gap-3 rounded-xl border border-white/[0.07] bg-white/[0.03] p-3.5 backdrop-blur-sm transition-all hover:border-violet-500/20 hover:bg-white/[0.06] hover:shadow-lg hover:shadow-violet-500/5"
+      className="group relative flex gap-3 rounded-xl border border-white/[0.07] bg-white/[0.03] p-3.5 backdrop-blur-sm transition-all hover:border-blue-500/20 hover:bg-white/[0.06] hover:shadow-lg hover:shadow-blue-500/5"
     >
       {/* Category Icon */}
       <div

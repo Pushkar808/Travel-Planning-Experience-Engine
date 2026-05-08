@@ -60,8 +60,8 @@ export default function DashboardPage() {
       <main className="flex-1 pt-24 pb-16">
         {/* Background Gradient */}
         <div className="pointer-events-none fixed inset-0 overflow-hidden">
-          <div className="absolute top-0 left-1/2 h-72 w-72 rounded-full bg-violet-500/10 blur-[120px]" />
-          <div className="absolute bottom-20 right-1/4 h-64 w-64 rounded-full bg-cyan-500/10 blur-[120px]" />
+          <div className="absolute top-0 left-1/2 h-72 w-72 rounded-full bg-blue-500/10 blur-[120px]" />
+          <div className="absolute bottom-20 right-1/4 h-64 w-64 rounded-full bg-blue-400/10 blur-[120px]" />
         </div>
 
         <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
@@ -78,7 +78,7 @@ export default function DashboardPage() {
               </p>
             </div>
             <Link href="/trip/new">
-              <Button className="bg-gradient-to-r from-violet-600 to-cyan-600 text-white shadow-lg shadow-violet-500/20">
+              <Button className="bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-lg shadow-blue-500/20">
                 <Plus className="mr-2 h-4 w-4" />
                 New Trip
               </Button>
@@ -93,7 +93,7 @@ export default function DashboardPage() {
               description="Start planning your first AI-powered trip — it only takes a minute."
             >
               <Link href="/trip/new">
-                <Button className="bg-gradient-to-r from-violet-600 to-cyan-600 text-white">
+                <Button className="bg-gradient-to-r from-blue-600 to-blue-500 text-white">
                   Plan Your First Trip
                 </Button>
               </Link>

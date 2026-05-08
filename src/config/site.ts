@@ -1,7 +1,7 @@
 export const siteConfig = {
-  name: "Wanderlust AI",
+  name: "Atlas AI",
   description: "AI-powered travel planning — craft your perfect trip in minutes.",
-  url: "https://wanderlust.ai",
+  url: "https://atlasai.app",
   navLinks: [
     { label: "Home", href: "/" },
     { label: "Plan Trip", href: "/trip/new" },

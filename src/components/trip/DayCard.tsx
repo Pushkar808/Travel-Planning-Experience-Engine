@@ -21,8 +21,8 @@ const timeSlotConfig: Record<
   afternoon: {
     label: "Afternoon",
     icon: Sunset,
-    gradient: "from-violet-500/20 to-pink-500/20",
-    dotColor: "bg-violet-400",
+    gradient: "from-blue-500/20 to-pink-500/20",
+    dotColor: "bg-blue-400",
   },
   evening: {
     label: "Evening",
@@ -89,7 +89,7 @@ export function DayCard({ day, index = 0, compact = false }: DayCardProps) {
       {/* ── Day Header ─────────────────────────────────── */}
       <div className="flex items-center justify-between border-b border-white/[0.06] px-5 py-4">
         <div className="flex items-center gap-3">
-          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-violet-500/20 to-cyan-500/20 text-sm font-bold text-violet-400">
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500/20 to-blue-400/20 text-sm font-bold text-blue-400">
             {day.day}
           </span>
           <div>

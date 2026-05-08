@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Wanderlust AI — AI-Powered Travel Planning",
+  title: "Atlas AI — AI-Powered Travel Planning",
   description:
     "Plan your perfect trip in minutes with AI. Smart itineraries, real-time weather, and personalized recommendations tailored to your travel style.",
   keywords: ["travel", "AI", "trip planner", "itinerary", "vacation"],

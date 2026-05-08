@@ -13,9 +13,9 @@ interface TripCardProps {
 
 const statusColors: Record<string, string> = {
   draft: "bg-amber-500/10 text-amber-400 border-amber-500/30",
-  planned: "bg-violet-500/10 text-violet-400 border-violet-500/30",
+  planned: "bg-blue-500/10 text-blue-400 border-blue-500/30",
   active: "bg-emerald-500/10 text-emerald-400 border-emerald-500/30",
-  completed: "bg-cyan-500/10 text-cyan-400 border-cyan-500/30",
+  completed: "bg-blue-400/10 text-blue-300 border-blue-400/30",
 };
 
 export function TripCard({ trip, index = 0 }: TripCardProps) {
@@ -31,7 +31,7 @@ export function TripCard({ trip, index = 0 }: TripCardProps) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: index * 0.1 }}
       whileHover={{ y: -4, scale: 1.01 }}
-      className="group rounded-2xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur-lg transition-colors hover:border-violet-500/20 hover:bg-white/[0.07]"
+      className="group rounded-2xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur-lg transition-colors hover:border-blue-500/20 hover:bg-white/[0.07]"
     >
       {/* Status Badge */}
       <div className="mb-3 flex items-center justify-between">
@@ -46,7 +46,7 @@ export function TripCard({ trip, index = 0 }: TripCardProps) {
       {/* Title & Destination */}
       <h3 className="text-lg font-semibold leading-snug">{trip.title}</h3>
       <div className="mt-1.5 flex items-center gap-1.5 text-sm text-muted-foreground">
-        <MapPin className="h-3.5 w-3.5 text-violet-400" />
+        <MapPin className="h-3.5 w-3.5 text-blue-400" />
         {trip.destination}
       </div>
 

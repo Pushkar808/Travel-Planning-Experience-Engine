@@ -10,7 +10,7 @@ export function LoadingSpinner({ text = "Loading..." }: { text?: string }) {
       animate={{ opacity: 1 }}
       className="flex flex-col items-center justify-center gap-3 py-12"
     >
-      <Loader2 className="h-8 w-8 animate-spin text-violet-500" />
+      <Loader2 className="h-8 w-8 animate-spin text-blue-500" />
       <p className="text-sm text-muted-foreground">{text}</p>
     </motion.div>
   );

@@ -14,20 +14,19 @@ interface InfoCardProps {
 export function InfoCard({
   icon: Icon,
   title,
-  accentColor = "violet",
+  accentColor = "blue",
   loading = false,
   children,
 }: InfoCardProps) {
   const accentMap: Record<string, { iconBg: string; iconText: string }> = {
-    violet: { iconBg: "bg-violet-500/15", iconText: "text-violet-400" },
+    blue: { iconBg: "bg-blue-500/15", iconText: "text-blue-400" },
     emerald: { iconBg: "bg-emerald-500/15", iconText: "text-emerald-400" },
-    cyan: { iconBg: "bg-cyan-500/15", iconText: "text-cyan-400" },
+    red: { iconBg: "bg-red-500/15", iconText: "text-red-400" },
     amber: { iconBg: "bg-amber-500/15", iconText: "text-amber-400" },
     rose: { iconBg: "bg-rose-500/15", iconText: "text-rose-400" },
-    blue: { iconBg: "bg-blue-500/15", iconText: "text-blue-400" },
   };
 
-  const accent = accentMap[accentColor] ?? accentMap.violet;
+  const accent = accentMap[accentColor] ?? accentMap.blue;
 
   return (
     <motion.div

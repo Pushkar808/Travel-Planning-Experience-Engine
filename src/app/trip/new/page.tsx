@@ -5,6 +5,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { TripPlannerForm } from "@/components/trip/TripPlannerForm";
 import { ItineraryGrid } from "@/components/trip/ItineraryGrid";
+import { ItineraryLoader } from "@/components/trip/ItineraryLoader";
 import { BudgetCard, buildBudgetFromActivities } from "@/components/trip/BudgetCard";
 import { WeatherCard } from "@/components/trip/WeatherCard";
 import { TravelTipsCard } from "@/components/trip/TravelTipsCard";
@@ -21,6 +22,7 @@ export default function NewTripPage() {
   const [destination, setDestination] = useState("");
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
+  const [isGenerating, setIsGenerating] = useState(false);
 
   const { weather, loading: weatherLoading, error: weatherError } = useWeather(
     result ? destination : undefined
@@ -36,16 +38,21 @@ export default function NewTripPage() {
     groupSize: number;
   }) => {
     setDestination(data.destination);
-    const response = await generateItinerary({
-      destination: data.destination,
-      startDate: data.startDate,
-      endDate: data.endDate,
-      budget: data.budget,
-      travelStyle: data.travelStyle as TravelStyle[],
-      interests: data.interests,
-      groupSize: data.groupSize,
-    });
-    setResult(response);
+    setIsGenerating(true);
+    try {
+      const response = await generateItinerary({
+        destination: data.destination,
+        startDate: data.startDate,
+        endDate: data.endDate,
+        budget: data.budget,
+        travelStyle: data.travelStyle as TravelStyle[],
+        interests: data.interests,
+        groupSize: data.groupSize,
+      });
+      setResult(response);
+    } finally {
+      setIsGenerating(false);
+    }
   };
 
   const handleSave = async () => {
@@ -75,13 +82,23 @@ export default function NewTripPage() {
       <main className="flex-1 pt-24 pb-16">
         {/* Background */}
         <div className="pointer-events-none fixed inset-0 overflow-hidden">
-          <div className="absolute -top-40 right-1/4 h-80 w-80 rounded-full bg-violet-500/10 blur-[120px]" />
-          <div className="absolute bottom-0 left-1/3 h-96 w-96 rounded-full bg-cyan-500/10 blur-[120px]" />
+          <div className="absolute -top-40 right-1/4 h-80 w-80 rounded-full bg-blue-500/10 blur-[120px]" />
+          <div className="absolute bottom-0 left-1/3 h-96 w-96 rounded-full bg-blue-400/10 blur-[120px]" />
         </div>
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <AnimatePresence mode="wait">
-            {!result ? (
+            {isGenerating ? (
+              <motion.div
+                key="loader"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                className="flex min-h-[60vh] items-center justify-center"
+              >
+                <ItineraryLoader />
+              </motion.div>
+            ) : !result ? (
               <motion.div
                 key="form"
                 initial={{ opacity: 0 }}
@@ -122,7 +139,7 @@ export default function NewTripPage() {
                     className={`min-w-[140px] transition-all ${
                       saved
                         ? "bg-emerald-600 hover:bg-emerald-600"
-                        : "bg-gradient-to-r from-violet-600 to-cyan-600 hover:from-violet-500 hover:to-cyan-500"
+                        : "bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400"
                     } text-white shadow-lg`}
                   >
                     {saving ? (

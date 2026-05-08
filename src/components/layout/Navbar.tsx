@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Plane, Menu, X } from "lucide-react";
+import { Plane, Menu, X, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 
@@ -19,8 +19,8 @@ export function Navbar() {
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-violet-500 to-cyan-500 transition-transform group-hover:scale-110">
+        <Link href="/" className="group flex items-center gap-2">
+          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-blue-500 via-red-500 to-yellow-500 transition-transform group-hover:scale-110">
             <Plane className="h-5 w-5 text-white" />
           </div>
           <span className="text-lg font-bold tracking-tight">
@@ -40,10 +40,11 @@ export function Navbar() {
         </div>
 
         {/* CTA + Mobile Toggle */}
-        <div className="flex items-center gap-3">
-          <Link href="/trip/new" className="hidden md:block">
-            <Button className="bg-gradient-to-r from-violet-600 to-cyan-600 text-white hover:from-violet-500 hover:to-cyan-500 shadow-lg shadow-violet-500/20 transition-all hover:shadow-violet-500/40">
-              Plan a Trip
+        <div className="hidden items-center gap-4 sm:flex">
+          <Link href="/trip/new">
+            <Button className="bg-blue-600 text-white hover:bg-blue-500 shadow-lg shadow-blue-500/20 transition-all hover:shadow-blue-500/40">
+              <Plus className="mr-2 h-4 w-4" />
+              New Trip
             </Button>
           </Link>
 
@@ -76,9 +77,14 @@ export function Navbar() {
                   </Button>
                 </Link>
               ))}
-              <Link href="/trip/new" onClick={() => setMobileOpen(false)}>
-                <Button className="mt-2 w-full bg-gradient-to-r from-violet-600 to-cyan-600 text-white">
-                  Plan a Trip
+              <Link
+                href="/trip/new"
+                className="block"
+                onClick={() => setMobileOpen(false)}
+              >
+                <Button className="mt-2 w-full bg-blue-600 text-white hover:bg-blue-500">
+                  <Plus className="mr-2 h-4 w-4" />
+                  New Trip
                 </Button>
               </Link>
             </div>

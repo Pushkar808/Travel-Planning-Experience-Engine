@@ -21,7 +21,7 @@ interface WeatherCardProps {
 
 export function WeatherCard({ weather, loading = false, error }: WeatherCardProps) {
   return (
-    <InfoCard icon={CloudSun} title="Weather" accentColor="cyan" loading={loading}>
+    <InfoCard icon={CloudSun} title="Weather" accentColor="blue" loading={loading}>
       {error ? (
         <p className="text-xs text-red-400">{error}</p>
       ) : weather ? (
@@ -53,7 +53,7 @@ export function WeatherCard({ weather, loading = false, error }: WeatherCardProp
               <span className="text-[10px] text-muted-foreground">Humidity</span>
             </div>
             <div className="flex flex-col items-center gap-1 rounded-lg bg-white/[0.04] py-2">
-              <Wind className="h-3.5 w-3.5 text-cyan-400" />
+              <Wind className="h-3.5 w-3.5 text-blue-300" />
               <span className="text-xs font-medium">{weather.windSpeed}</span>
               <span className="text-[10px] text-muted-foreground">km/h</span>
             </div>
